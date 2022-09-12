@@ -1,36 +1,5 @@
-import Stack from "./stack.js";
-import Queue from "./Queue.js";
 import Graph from "./Graph.js";
 
-const cars = new Stack();
-
-//Stack: Works like stacking books. Add / remove from the start (or end).
-console.log("Stack----------");
-cars.push("Honda");
-cars.push("Toyota");
-cars.push("Mazda");
-console.log(cars.getSize());
-console.log(cars.pop());
-console.log(cars.getSize());
-console.log(cars);
-console.log(cars.peek());
-console.log(cars.isEmpty());
-
-//Queue - add elements to the end  - remove from start .
-console.log("Queue----------");
-
-const people = new Queue();
-people.enqueue("Bob");
-people.enqueue("Ben");
-people.enqueue("Linda");
-people.enqueue("Sally");
-console.log(people.getSize());
-console.log(people.peek());
-people.dequeue();
-console.log(people);
-console.log(people.getSize());
-
-//Graph - nodes connected via edges. Edges can have weight ->find shortest path between nodes.
 //BFS - Breadth-First-Search
 //DFS - Depth-First-Search
 
