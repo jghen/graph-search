@@ -1,19 +1,18 @@
-//Graph - nodes connected via edges. Edges can have weight ->find shortest path between nodes.
-//BFS - Breadth-First-Search - find shortest path of unweighted graph
-//DFS - Depth-First-Search - find shortest path of weighted graph
+//BFS - Breadth-First-Search
+//DFS - Depth-First-Search
 export default class Graph {
   #nodes;
   constructor() {
-    this.#nodes = {}; ///map
+    this.#nodes = {};
   }
 
   addNode(node) {
-    this.#nodes[node] = []; //
+    this.#nodes[node] = [];
   }
 
   addEdge(source, destination) {
     if (!this.#nodes[source] || !this.#nodes[destination]) {
-      return false; //source and destination nodes does not exist.
+      return false;
     }
 
     if (!this.#nodes[source].includes(destination)) {
@@ -24,9 +23,11 @@ export default class Graph {
       this.#nodes[destination].push(source);
     }
   }
+
   showNodes() {
     console.log(this.#nodes);
   }
+
   getNodes() {
     return this.#nodes;
   }
@@ -66,11 +67,7 @@ export default class Graph {
 
       let current = queue.shift();
 
-      console.log("---- current", current, "------");
-      console.log("visited", visited);
-
       if (visited[current]) {
-        console.log("already visited", current);
         continue;
       }
       if (current === destination) {
@@ -85,18 +82,13 @@ export default class Graph {
       visited[current] = true;
 
       let neighbor = this.#nodes[current];
-      console.log("neighbors bfs:", neighbor);
       printColor(current, counter, neighbor);
 
       for (let i = 0; i < neighbor.length; i++) {
         if (!queue.includes(neighbor[i]) && !visited[neighbor[i]]) {
-          console.log("pushing", neighbor[i], " into queue");
           queue.push(neighbor[i]);
-        } else {
-          console.log(neighbor[i], " already in queue or visited");
         }
       }
-      console.log("queue:", queue);
       displayQueue(queue, counter);
     }
     return false;
@@ -108,7 +100,7 @@ export default class Graph {
       const personEl = document.getElementById(person.toLowerCase());
 
       setTimeout(() => {
-        return (personEl.style.color = "red"); //visited turn red
+        return (personEl.style.color = "red");
       }, visitedPersons * 1000);
     };
 
@@ -123,25 +115,21 @@ export default class Graph {
         const finalPerson = document.getElementById(source.toLowerCase());
         finalPerson.style.color = "blue";
         finalPerson.style.fontWeight = "bold";
-        finalPerson.style.marginLeft = '41px'; //to counter bold. Maybe translateX -1px?
+        finalPerson.style.marginLeft = "41px"; //to counter bold. Maybe translateX -1px?
       }, names.length * 1000);
       return true;
     }
 
-    console.log("---- source", source, "-----");
     if (visited[source]) {
-      console.log("visited", visited[source], "move to next neighbor");
       return false;
     }
 
     visited[source] = true;
 
     const neighbors = this.#nodes[source];
-    console.log("neighbors: ", neighbors);
 
     for (let i = 0; i < neighbors.length; i++) {
       if (this.dfs(neighbors[i], destination, visited)) {
-        console.log("visited", neighbors[i]);
         return true;
       }
     }
