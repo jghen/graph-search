@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="graph.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Graph search</h1>
+    <div class="flex btn-outer-wrapper">
+      <button class="start-btn" id="bfs-btn">Breadth First Search</button>
+      <button class="start-btn" id="dfs-btn">Depth First Search</button>
+    </div>
+    <div class="outer-wrapper">
+      <div class="inner-wrapper">
+        <p id="sally">Sally</p>
+        <div class="edge flat sally-tim"></div>
+        <p id="tim">Tim</p>
+        <p id="jeff">Jeff</p>
+      </div>
+      <div class="inner-wrapper">
+        <div class="edge ann-tim"></div>
+        <div class="edge lee-tim"></div>
+        <div class="edge ron-jeff"></div>
+      </div>
+      <div class="inner-wrapper">
+        <p id="john">John</p>
+        <div class="edge flat john-ann"></div>
+        <p id="ann">Ann</p>
+        <div class="edge flat ann-lee"></div>
+        <p id="lee">Lee</p>
+        <div class="edge flat lee-ron"></div>
+        <p id="ron">Ron</p>
+      </div>
+    </div>
+    <div class="show-queue-wrapper flex">
+      <div id="show-queue" class="show-queue flex">
+        <h3>Queue:</h3>
+        <input id="queue" class="queue" />
+      </div>
+    </div>
+    <div class="inner-wrapper column">
+      <div class="input-wrapper">
+        <label for="name1">Name1:</label>
+        <input type="text" id="name1" list="name1-list"  value="Sally"/>
+        <datalist id="name1-list">
+          <option value="Ann"></option>
+          <option value="Lee"></option>
+          <option value="Jeff"></option>
+          <option value="John"></option>
+          <option value="Ron"></option>
+          <option value="Sally"></option>
+          <option value="Tim"></option>
+        </datalist>
+      </div>
+      <div class="input-wrapper">
+        <label for="name2">Name2:</label>
+        <input type="text" id="name2" list="name2-list" value="Jeff"/>
+        <datalist id="name2-list">
+          <option value="Ann"></option>
+          <option value="Lee"></option>
+          <option value="Jeff"></option>
+          <option value="John"></option>
+          <option value="Ron"></option>
+          <option value="Sally"></option>
+          <option value="Tim"></option>
+        </datalist>
+      </div>
+    </div>
+
+    <div class="flex btn-wrapper">
+      <button class="start-search-btn" id="start-btn">Start Search</button>
+    </div>
+
+    <!-- <script src="./setsAndMaps.js"></script> -->
+    <script type="module" src="./script.js"></script>
+    <!-- <script src="./algorithms.js"></script> -->
+    <!-- <script src="./builtInSorting.js"></script> -->
+    <!-- <script src="bigO.js"></script> -->
+  </body>
+</html>
